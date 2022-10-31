@@ -1,28 +1,17 @@
 import express from "express";
 import morgan from "morgan";
+import globalRouter from "./routers/globalRouter.js";
+import videoRouter from "./routers/videoRouter.js";
+import userRouter from "./routers/uesrRouter.js";
 
 const app = express();
 const PORT = 4000;
 const logger = morgan("dev");
 
-const middleware = (req, res, next) => {
-  if (req.protocol != "https") {
-    console.log("Insecure");
-  }
-  console.log("Someone is trying to enter this url. ⛔");
-  next();
-};
-const handleHome = (req, res) => {
-  console.log("** This is the response for home. **");
-  return res.send("<h1>Response for home Completed</h1>");
-};
-const handleLogin = (req, res) => {
-  console.log("** This is the response for login. **");
-  return res.send("<h1>Response for login Completed</h1>");
-};
-app.use(middleware, logger);
-app.get("/", handleHome);
-app.get("/login", handleLogin);
+app.use(logger);
+app.use("/", globalRouter);
+app.use("/user", userRouter);
+app.use("/video", videoRouter);
 
 const handleListening = () =>
   console.log(`Server listening on http://localhost:${PORT}🌏`);
