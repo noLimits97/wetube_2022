@@ -4,7 +4,7 @@ import {
   goToPf,
   goToEditPf,
   goToDeletePf,
-} from "../controllers/userCont.js";
+} from "../controllers/userConts.js";
 
 const userRouter = express.Router();
 
