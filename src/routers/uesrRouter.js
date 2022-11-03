@@ -1,16 +1,14 @@
 import express from "express";
 import {
-  goToLogout,
-  goToPf,
-  goToEditPf,
-  goToDeletePf,
+  getLogout,
+  getProfile,
+  getEditProfile,
 } from "../controllers/userConts.js";
 
 const userRouter = express.Router();
 
-userRouter.get("/logout", goToLogout);
-userRouter.get("/:id", goToPf);
-userRouter.get("/:id/edit", goToEditPf);
-userRouter.get("/:id/delete", goToDeletePf);
+userRouter.get("/logout", getLogout);
+userRouter.get("/:id", getProfile);
+userRouter.get("/:id/edit", getEditProfile);
 
 export default userRouter;

@@ -1,13 +1,11 @@
 import express from "express";
-import { goToHome } from "../controllers/globalConts.js";
-import { goToJoin, goToLogin } from "../controllers/userConts.js";
-import { goToSearch } from "../controllers/videoConts.js";
+import { getHome } from "../controllers/globalConts.js";
+import { getSignUp, getLogin } from "../controllers/userConts.js";
 
 const globalRouter = express.Router();
 
-globalRouter.get("/", goToHome);
-globalRouter.get("/join", goToJoin);
-globalRouter.get("/login", goToLogin);
-globalRouter.get("/search", goToSearch);
+globalRouter.get("/", getHome);
+globalRouter.get("/signup", getSignUp);
+globalRouter.get("/login", getLogin);
 
 export default globalRouter;

@@ -1,3 +1,3 @@
-export const goToHome = (req, res, next) => {
-  return res.send("<h1>Home</h1>");
+export const getHome = (req, res, next) => {
+  return res.render("home.pug", { pageTitle: "Home" });
 };

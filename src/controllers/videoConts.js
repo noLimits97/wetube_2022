@@ -1,15 +1,11 @@
-export const goToSearch = (req, res, next) => {
-  return res.send(`<h1>Search a Video</h1>`);
+export const getVideo = (req, res, next) => {
+  const { id } = req.params;
+  return res.render("videos/video.pug", { pageTitle: `Video #${id}` });
 };
-export const goToUploadVideo = (req, res, next) => {
-  return res.send(`<h1>Upload a Video</h1>`);
+export const getUploadVideo = (req, res, next) => {
+  return res.render("videos/uploadVideo.pug", { pageTitle: "Upload Video" });
 };
-export const goToVideo = (req, res, next) => {
-  return res.send(`<h1>Video ID: ${req.params.id}</h1>`);
-};
-export const goToEditVideo = (req, res, next) => {
-  return res.send(`<h1>Edit Video ID: ${req.params.id}</h1>`);
-};
-export const goToDeleteVideo = (req, res, next) => {
-  return res.send(`<h1>Delete Video ID: ${req.params.id}</h1>`);
+export const getEditVideo = (req, res, next) => {
+  const { id } = req.params;
+  return res.render("videos/editVideo.pug", { pageTitle: `Edit Video #${id}` });
 };

@@ -1,18 +1,16 @@
-export const goToJoin = (req, res, next) => {
-  return res.send(`<h1>Join</h1>`);
+export const getSignUp = (req, res, next) => {
+  return res.render("users/signUp.pug", { pageTitle: "SignUp" });
 };
-export const goToLogin = (req, res, next) => {
-  return res.send(`<h1>Login</h1>`);
+export const getLogin = (req, res, next) => {
+  return res.render("users/login.pug", { pageTitle: "Login" });
 };
-export const goToLogout = (req, res, next) => {
-  return res.send(`<h1>Logout ID: ${req.params.id}</h1>`);
+export const getLogout = (req, res, next) => {
+  return res.render("users/logout.pug", { pageTitle: "Logout" });
 };
-export const goToPf = (req, res, next) => {
-  return res.send(`<h1>ID: ${req.params.id}</h1>`);
+export const getProfile = (req, res, next) => {
+  const { id } = req.params;
+  return res.render("users/profile.pug", { pageTitle: `profile #${id}` });
 };
-export const goToEditPf = (req, res, next) => {
-  return res.send(`<h1>Edit ID: ${req.params.id}</h1>`);
-};
-export const goToDeletePf = (req, res, next) => {
-  return res.send(`<h1>Delete ID: ${req.params.id}</h1>`);
+export const getEditProfile = (req, res, next) => {
+  return res.render("users/editProfile.pug", { pageTitle: "Home" });
 };
