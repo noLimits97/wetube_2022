@@ -1,0 +1,42 @@
+header {
+  position: relative;
+  width: 100%;
+  display: block;
+  justify-content: space-between;
+  padding: 20px 50px;
+  border-bottom: 1.5px solid black;
+  color: inherit;
+  .logo-container {
+    a {
+      padding: 10px 5px;
+    }
+    .header__logo {
+      width: 16px;
+      height: 24px;
+    }
+    .header__title {
+      color: $firstColor;
+      margin-left: 10px;
+      font-size: 30px;
+    }
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    list-style-type: none;
+    li {
+      margin-left: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      a {
+        color: $thirdColor;
+      }
+    }
+    i {
+      font-size: 24px;
+    }
+  }
+}

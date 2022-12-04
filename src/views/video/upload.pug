@@ -1,0 +1,28 @@
+extends ../template/layout
+
+block content 
+    //- 가로로 분할
+    div#upload-main
+        div#video-recording 
+            div#input
+                video(width=720 height=480)#input-video
+                button#record-btn Start Recording
+            div#output
+                video(width=720 height=480)#output-video
+                button#download-btn Download Recording
+    
+        //- HTML과 modelSchema 모두 required를 하는 이유는 HTML을 Client가 수정할 수 있기 때문이다.
+        form(method="POST", enctype="multipart/form-data")#upload-form
+            div
+                label(for="video") Select File 
+                input(id="video", name="video", type="file", accept="video/*", required)
+            input(id="title", name="title", type="text", minlength=2, placeholder="  Title", required).
+            input(id="description", name="description", type="text", minlength=2, maxlength=500, placeholder="  Description", required)
+            input(id="hashtags", name="hashtags", type="text", placeholder="  Hashtags", required)
+            input(id="submit", type="submit", value="Upload")
+        div#error-message
+            if errorMessage
+                p=errorMessage
+
+block scripts
+    script(src="/static/js/recorder.js")

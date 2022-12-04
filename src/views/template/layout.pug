@@ -1,8 +1,20 @@
 doctype html 
 html(lang="ko")
-include partials/head.pug
-include partials/header.pug
+    head 
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        <link rel="stylesheet" href="/static/css/styles.css">
+        <script src="https://kit.fontawesome.com/405588dbc6.js" crossorigin="anonymous"></script>
+        title #{siteName}
 body
+    include ../partials/header
     main 
         block content
-include partials/footer.pug
+    include ../partials/footer
+script(src="/static/js/main.js")
+block scripts 
+
+//- # 9.3 Webpack Configuration part 3
+//- 과정: main.js에 작성된 코드가 loader에 의해 인코딩되고, 그 output이 path로 지정된 directory에 생성된다.
+//- 프론트 엔드에서 js 파일을 볼 수 있게끔 pug에도 script 코드를 작성한다.

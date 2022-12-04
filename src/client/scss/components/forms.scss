@@ -1,0 +1,41 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 440px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 30px;
+  input {
+    all: unset;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: $fontColor;
+    box-sizing: border-box;
+    &:not(.submit-btn) {
+      border-bottom: 1px solid $fontColor;
+      width: 90%;
+    }
+    &::placeholder {
+      opacity: 0.7;
+    }
+  }
+  input[type="submit"] {
+    display: block;
+    width: 120px;
+    height: 45px;
+    margin-top: 10px;
+    background-color: $firstColor;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+  }
+}
+form:not(.video__comment-form) {
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+}

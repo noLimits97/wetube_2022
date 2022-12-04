@@ -1,0 +1,37 @@
+#video-container {
+  width: 100%;
+  position: relative;
+  #current-video {
+    width: 100%;
+  }
+  #video-controller {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    &.showing {
+      opacity: 1;
+    }
+    height: 40px;
+    display: flex;
+    align-items: center;
+    #play {
+      height: 100%;
+    }
+    #mute {
+      height: 100%;
+    }
+    #volume-range {
+      height: 100%;
+    }
+    #time-display {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+    }
+    #full-screen {
+      height: 100%;
+    }
+    #timeline {
+      height: 100%;
+    }
+  }
+}

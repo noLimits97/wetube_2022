@@ -1,0 +1,52 @@
+extends ../template/layout
+
+block content 
+    if errorMessage 
+        span=errorMessage
+    else
+        div#video-container(data-id=video.id)
+            video(src="/" + video.vidUrl, width=720, height=480)#current-video
+            div#video-controller
+                button#play Play 
+                button#mute Mute
+                input(type="range", step="0.1", value=0.5, min="0", max="1")#volume-range
+                div#time-display 
+                    span#current-time 00:00
+                    span / 
+                    span#total-time
+                button#full-screen Activate Full Screen
+                input(type="range", step="0.2", value=0, min="0")#timeline
+        div.video__data
+            p.video__title=video.title
+            p.video__description=video.description
+            small #{video.meta.views} #{video.views === 1 ? "view" : "views"}
+            ul.video__hashtags 
+                each hashtag in video.hashtags
+                    li=hashtag 
+            br
+            small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+            br
+            small.video__owner Uploaded by 
+                a(href=`/user/${video.owner._id}`)=video.owner.username
+                
+        br
+        if (loggedInUser && (String(video.owner._id) === String(loggedInUser._id)))
+            a(href=`/video/${video.id}/edit`) ✂️ Edit Video
+            br
+            a(href=`/video/${video.id}/delete`) ❌ Delete Video
+        if loggedIn
+            div.video__commentFormContainer
+                form.video__commentForm#comment-form
+                    textarea(placeholder="Commment...", cols="30", rows="10")
+                    button Attach
+        div.video__comments
+            ul
+                each comment in video.comments.reverse()
+                    li.video__comment
+                        i.fas.fa-comment 
+                            span=comment.text
+
+block scripts 
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")

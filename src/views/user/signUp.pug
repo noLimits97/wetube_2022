@@ -1,0 +1,13 @@
+extends ../template/layout
+
+block content
+    div.signup-container
+        p=errorMessage
+        form(method="POST").signup-form
+            input(id="email", name="email", type="email", placeholder="Email")
+            input(id="username", name="username", type="text", placeholder="Username")
+            input(id="realname", name="realname", type="text", placeholder="Realname")
+            input(id="password", name="password", type="password", placeholder="Password")
+            input(id="_password", name="_password", type="password", placeholder="Confirm Password")
+            input(id="location", name="location", type="text", placeholder="Location")
+            input(type ="submit", value="Submit")

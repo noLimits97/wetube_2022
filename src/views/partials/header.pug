@@ -1,2 +1,27 @@
 header 
-    h1=pageTitle 
+    div.logo-container
+        a(href="/")
+            img(src="../"+"imgs/myLogo.png").header__logo
+            span.header__title=siteName
+    nav
+        ul
+            li
+                a(href='/search')
+                    i.fas.fa-search
+            if loggedIn
+                if isHome
+                    li 
+                        a(href="/video/upload")
+                            i.far.fa-caret-square-up
+                li
+                    a(href=`/user/${loggedInUser._id}`) My Profile
+                li
+                    a(href="/user/edit") Edit Profile
+                li 
+                    a(href="/user/logout") Logout
+            else
+                li 
+                    a(href="/login") Login
+                li
+                    a(href="/signup") Sign Up 
+            

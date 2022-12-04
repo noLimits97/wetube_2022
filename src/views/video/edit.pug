@@ -1,0 +1,8 @@
+extends ../template/layout
+
+block content
+    form(method="POST")
+        input(id="title", name="title", type="text", value=video.title, minlength=2, required)
+        input(id="description", name="description", type="text", value=video.description, minlength=2, maxlenght=500, required)
+        input(id="hashtags", name="hashtags", type="text", value=video.hashtags.join(), required)
+        input(type="submit", value="Save")

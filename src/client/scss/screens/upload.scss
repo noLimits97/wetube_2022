@@ -1,0 +1,44 @@
+#upload-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #video-recording {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    #input {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      #input-video {
+        width: 720px;
+        height: 480px;
+        background-color: black;
+      }
+      #record-btn {
+        margin-top: 15px;
+      }
+    }
+    #output {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      #output-video {
+        width: 720px;
+        height: 480px;
+        background-color: black;
+      }
+      #download-btn {
+        margin-top: 15px;
+      }
+    }
+  }
+}

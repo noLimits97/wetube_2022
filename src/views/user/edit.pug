@@ -1,0 +1,31 @@
+extends ../template/layout
+
+block content 
+    //- # 8.6 File Uploads part 1: Create 'Profile Photo' input
+    img(src="/"+loggedInUser.avatarUrl, width="150px", height="150px")
+    form(method="POST", enctype="multipart/form-data")
+        label(for="profile-photo") Profile Photo
+        input(id="profile-photo", name="avatar", type="file", accept="image/*")
+        //- 모든 image를 받고 싶다면 accept="image/*"
+        label(for="_username") Change Username:
+        input(id="_username", name="_username", type="text", value=loggedInUser.username)
+        label(for="_location") Change Location: 
+        input(id="_location", name="_location", type="text", value=loggedInUser.location)
+        input(type="submit", value="Update Profile")
+        if !loggedInUser.socialLogin
+            hr
+            a(href="changePassword") Change Password &rarr;
+
+//-
+//-  # 8.0 Edit Profile Get
+//-  : Pug는 res.locals의 변수를 참조할 수 있기 때문에 res.locals 안의 변수를 호출할 때 res.locals를 붙이지 않아도 된다. 
+//-  그러나 JS에서 해당 변수를 참조하고자 할 때는 res.locals를 붙여줘야 한다.
+
+//-  # 8.1 Protector and Public Middlewares
+//-  : 로그인 하지 않은 유저가 특정 url("/login" 또는 "/user/edit" )에 접근하거나, 
+//-  혹은 로그인 한 유저가 특정 url("/github/startLogin" 또는 "/github/finishLogin")에 접근하는 것을 막아야 한다.
+
+//-  # 8.6 File Uploads part 1
+//-  : multer는 파일 업로드에 유용한 middleware로, npm package이다. 백엔드가 이해할 수 있는 형태로 파일을
+//-  인코딩한다.
+//-

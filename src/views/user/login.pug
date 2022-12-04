@@ -1,0 +1,15 @@
+extends ../template/layout
+
+//-     #7.17 - 18 Github Login
+//- (1) 유저가 계정 정보를 입력하면 서버는 유저를 해당 소셜 플랫폼으로 redirect시킨다.
+//- (2) 인증이 완료되면, 플랫폼은 다시 유저를 user's access token과 함께 원래 서버로 redirect시킨다.
+//- (3) 서버는 token을 통해 유저 정보에 접근할 수 있게 된다.
+//- Callback URL: "http://localhost:4000/user/github/callback"
+block content 
+    div.login-container
+        form(method="POST").login-form
+            input(name= "email", id="email", type="email", placeholder="Email")
+            input(name= "password", id="password", type="password", placeholder="Password")
+            input(type="submit", value="Login")
+            br
+            a(href="user/github/startLogin") Github Login

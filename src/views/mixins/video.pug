@@ -1,0 +1,6 @@
+mixin video(obj)
+    a(href=`/video/${obj.id}`).video-mixin
+        //- div.video-mixin__thumb(style=`background-image:url(${video.thumbUrl}); backgorund -size:cover; background-position:center;`)
+        div.video-mixin__info
+            span.video-mixin__title=obj.title
+            div.video-mixin__meta

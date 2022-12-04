@@ -1,0 +1,11 @@
+extends ../template/layout
+include ../mixins/video
+
+block content 
+    form(method="GET")
+        input(name="keyword", tpye="text", placeholder="Seacrh...")
+        input(type="submit", value="Search")
+    hr
+    div 
+        each video in videos 
+            +video(video)

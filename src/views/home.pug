@@ -1,6 +1,8 @@
-extends template/layout.pug
+extends template/layout
+include mixins/video
 
 block content 
-    form(method="POST")
-        input(placeholder="Seacrh Video")
-        input(type="submit" value="Search")
+    each video in videos
+        +video(video)
+    else 
+        p Nothing Found

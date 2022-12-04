@@ -2,9 +2,10 @@
   "name": "wetube",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/init.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,14 +18,34 @@
   },
   "homepage": "https://github.com/noLimits97/wetube_2022#readme",
   "dependencies": {
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.6",
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "cross-fetch": "^3.1.5",
+    "css-loader": "^6.7.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "fs.promises": "^0.1.2",
+    "mongoose": "^6.7.1",
     "morgan": "^1.10.0",
-    "pug": "^3.0.2"
+    "multer": "^1.4.5-lts.1",
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/node": "^7.19.1",
     "@babel/preset-env": "^7.19.4",
-    "nodemon": "^2.0.20"
+    "babel-loader": "^9.1.0",
+    "mini-css-extract-plugin": "^2.7.0",
+    "nodemon": "^2.0.20",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
   }
 }
